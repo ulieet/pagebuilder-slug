@@ -252,57 +252,10 @@ __turbopack_context__.s([
     "default",
     ()=>DynamicFavicon
 ]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
-(()=>{
-    const e = new Error("Cannot find module '@/lib/blocks-storage'");
-    e.code = 'MODULE_NOT_FOUND';
-    throw e;
-})();
-var _s = __turbopack_context__.k.signature();
 "use client";
-;
-;
 function DynamicFavicon() {
-    _s();
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "DynamicFavicon.useEffect": ()=>{
-            const updateFavicon = {
-                "DynamicFavicon.useEffect.updateFavicon": ()=>{
-                    const config = cargarConfiguracion();
-                    // Si hay config usamos esa, si no, usamos el default estático
-                    const faviconUrl = config?.empresa?.favicon || "/favicon.png";
-                    if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
-                    ;
-                    // Buscamos cualquier link de icono existente
-                    const oldLink = document.querySelector("link[rel*='icon']");
-                    // Creamos el nuevo
-                    const link = document.createElement('link');
-                    link.type = 'image/x-icon';
-                    link.rel = 'shortcut icon';
-                    link.href = `${faviconUrl}?v=${Date.now()}`; // Timestamp para romper caché
-                    // Reemplazo atómico manual
-                    if (oldLink) {
-                        // Como quitamos 'icons' de layout.tsx, React ya no controla este nodo,
-                        // así que podemos borrarlo sin miedo a errores.
-                        document.head.removeChild(oldLink);
-                    }
-                    document.head.appendChild(link);
-                }
-            }["DynamicFavicon.useEffect.updateFavicon"];
-            updateFavicon();
-            window.addEventListener("storage-update", updateFavicon);
-            window.addEventListener("storage", updateFavicon);
-            return ({
-                "DynamicFavicon.useEffect": ()=>{
-                    window.removeEventListener("storage-update", updateFavicon);
-                    window.removeEventListener("storage", updateFavicon);
-                }
-            })["DynamicFavicon.useEffect"];
-        }
-    }["DynamicFavicon.useEffect"], []);
     return null;
 }
-_s(DynamicFavicon, "OD7bBpZva5O2jO+Puf00hKivP7c=");
 _c = DynamicFavicon;
 var _c;
 __turbopack_context__.k.register(_c, "DynamicFavicon");

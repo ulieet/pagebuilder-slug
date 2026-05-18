@@ -2220,7 +2220,7 @@ __turbopack_context__.s([
     "api",
     ()=>api
 ]);
-const CLIENT_ID = process.env.NEXT_PUBLIC_CLIENT_ID || "cliente-demo";
+const CLIENT_ID = ("TURBOPACK compile-time value", "jared") || "cliente-demo";
 const api = {
     // Solo dejamos la lectura de la página (pública)
     getConfig: async (throwAuthError = true)=>{

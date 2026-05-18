@@ -3311,6 +3311,10 @@
     --cell-size: calc(var(--spacing) * 8);
   }
 
+  .fade-in {
+    --tw-enter-opacity: 0;
+  }
+
   .group-focus-within\/menu-item\:opacity-100:is(:where(.group\/menu-item):focus-within *) {
     opacity: 1;
   }
