@@ -7,6 +7,8 @@ import { BloqueHeader } from "@/components/bloques/header"
 import { BloqueFooter } from "@/components/bloques/footer"
 import { WhatsappFloatingButton } from "@/components/bloques/whatsapp-button"
 import { api } from "@/lib/api" 
+// 1. 🛡️ IMPORTAMOS EL PARACAÍDAS
+import { defaultSiteConfig } from "@/lib/blocks-storage" 
 
 export default function HomePage() {
   const [config, setConfig] = useState<SiteConfig | null>(null)
@@ -19,10 +21,13 @@ export default function HomePage() {
         if (data) {
           setConfig(data)
         } else {
-          console.warn("No se encontró configuración para este cliente en la base de datos.")
+          console.warn("Cliente nuevo. Cargando plantilla por defecto...")
+          setConfig(defaultSiteConfig)
         }
       } catch (error) {
-        console.error("Error al cargar la configuración de la nube:", error)
+        console.error("Error al cargar la configuración de la nube. Usando fallback local:", error)
+        // Por si el servidor directamente está apagado:
+        setConfig(defaultSiteConfig)
       } finally {
         setLoading(false)
       }
@@ -47,7 +52,7 @@ export default function HomePage() {
     return <div className="min-h-screen flex items-center justify-center">Cargando...</div>
   }
 
-  // Si la API no devolvió datos y no hay configuración cargada, mostramos un aviso elegante y limpio
+
   if (!config) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50 text-slate-900 p-4 text-center">
